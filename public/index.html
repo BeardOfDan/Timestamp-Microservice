@@ -1,12 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Note: The html for the example's home page was borrowed (and altered) into this page -->
 
 <head>
+  <title>Timestamp microservice</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <meta charset="utf-8" />
 </head>
 
 <body>
-  <h1>Timestamp Microservice</h1>
+  <div class="container">
+    <h1 class="header">
+      Timestamp Microservice
+    </h1>
+
+    <hr />
+
+    <h3>Example usage:</h3>
+    <a href="/December%2015,%202015">/December%2015,%202015</a>
+    <br>
+    <a href="/1450137600">/1450137600</a>
+    <h3>Example output:</h3>
+    <code>
+      {
+        "unix": 1450137600,
+        "natural": "December 15, 2015"
+      }
+    </code>
+
+    <hr />
+    
+    <h3>Example usage:</h3>
+    <a href="/9999999999999999999999999999999999999">/9999999999999999999999999999999999999</a>
+    <br>
+    <a href="/Not a valid date">/Not a valid date</a>
+    <h3>Example output:</h3>
+    <code>
+      {
+        "unix": null,
+        "natural": null
+      }
+    </code>
+  </div>
+
 </body>
 
 </html>
