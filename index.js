@@ -15,10 +15,18 @@ app.get('/', (req, res, next) => {
 app.get('/:time', (req, res, next) => {
   const time = req.params.time;
   const result = { 'unix': null, 'natural': null };
-  if (moment(time).isValid() || (false)) {
-    result.unix = '';
-    result.natural = '';
+
+  const unix = moment.unix(time);
+  const natural = moment(time, ['MMMM DD, YYYY', 'MMMM D, YYYY']);
+
+  if (unix.isValid()) {
+    result.unix = unix.unix();
+    result.natural = unix.utc().format('MMMM D, YYYY').toString();
+  } else if (natural.isValid()) {
+    result.unix = natural.unix();
+    result.natural = natural.format('MMMM D, YYYY').toString();
   }
+
   res.send(result);
 });
 
